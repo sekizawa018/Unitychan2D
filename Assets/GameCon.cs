@@ -23,6 +23,7 @@ public class GameCon : MonoBehaviour
     public Text stateLabel;
     Scroll[] scrolls;
     float time = 30f;
+    public GameObject unitychan;
 
 
     // Start is called before the first frame update
@@ -62,7 +63,8 @@ public class GameCon : MonoBehaviour
             case State.Play:
                 if (Input.GetButtonDown("Jump"))
                 {
-                    score -= 10;
+
+                    score -= (int)(unitychan.GetComponent<Rigidbody2D>().velocity.y*10f);
                 }
                 time -= Time.deltaTime;
                 timeLabel.text = "Time : " + (int)time;
