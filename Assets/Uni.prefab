@@ -132,5 +132,5 @@ MonoBehaviour:
   speed: 15
   startPosition: 27
   endPosition: -14
-  maxX: 33
-  minX: 21
+  maxX: 5
+  minX: -5

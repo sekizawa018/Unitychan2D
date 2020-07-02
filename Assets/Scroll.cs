@@ -12,7 +12,7 @@ public class Scroll : MonoBehaviour
 
     private void Start()
     {
-	
+		Shuffle();
     }
 
 
@@ -29,19 +29,26 @@ public class Scroll : MonoBehaviour
 
 	void ScrollEnd()
 	{
+		transform.Translate(0, (endPosition - startPosition), 0);
+		Shuffle();
+	}
 
-		transform.Translate(0,(endPosition - startPosition), 0);
+	void Shuffle()
+    {
+		
 
-        if (gameObject.tag == "DamageObject")
-        {
+		if (gameObject.tag == "DamageObject" || gameObject.tag == "Coin")
+		{
 			float ranX = Random.Range(minX, maxX);
 			Vector3 pos = transform.localPosition;
 			pos.x = ranX;
 			pos.y += Random.Range(-1.0f, 1.0f);
 			transform.localPosition = pos;
+
+			if (gameObject.tag == "Coin")
+			{
+				gameObject.GetComponent<SpriteRenderer>().enabled = true;
+			}
 		}
-
-
-		
 	}
 }

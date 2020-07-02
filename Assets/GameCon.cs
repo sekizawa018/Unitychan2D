@@ -17,18 +17,11 @@ public class GameCon : MonoBehaviour
 
     State state;
     int score;
-
     public Stop stop;
-
     public Text timeLabel;
     public Text scoreLabel;
     public Text stateLabel;
-
-    
-
-   
     Scroll[] scrolls;
-
     float time = 30f;
 
 
@@ -57,7 +50,7 @@ public class GameCon : MonoBehaviour
                 if (stop.isTigger())
                 {
                     stateLabel.enabled = true;
-                    Invoke("GameStart",2f);
+                    Invoke("GameStart",3f);
                     
                 }
                 break;
@@ -135,6 +128,10 @@ public class GameCon : MonoBehaviour
    public  void TimeDamage()
     {
         time -= 3f;
+    }
+    public void TimeBonus()
+    {
+        time += 1f;
     }
  
 }

@@ -109,6 +109,15 @@ public class UnityChan2DController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Coin")
+        {
+            collision.GetComponent<SpriteRenderer>().enabled = false;
+            gameCon.TimeBonus();
+        }
+    }
+
     IEnumerator INTERNAL_OnDamage()
     {
         m_animator.Play(m_isGround ? "Damage" : "AirDamage");
