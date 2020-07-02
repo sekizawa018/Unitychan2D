@@ -115,6 +115,7 @@ public class UnityChan2DController : MonoBehaviour
         {
             collision.GetComponent<SpriteRenderer>().enabled = false;
             gameCon.TimeBonus();
+            collision.GetComponent<AudioSource>().Play();
         }
     }
 

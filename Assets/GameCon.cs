@@ -37,6 +37,7 @@ public class GameCon : MonoBehaviour
     {
         if (stop.isTigger()&&state!=State.GameOver)
         {
+
             foreach(var sc in scrolls)
             {
                 sc.enabled = true;
@@ -49,9 +50,13 @@ public class GameCon : MonoBehaviour
             case State.Ready:
                 if (stop.isTigger())
                 {
-                    stateLabel.enabled = true;
-                    Invoke("GameStart",3f);
                     
+                    stateLabel.enabled = true;
+                    
+
+                    Invoke("GameStart",4.5f);
+                    
+
                 }
                 break;
             case State.Play:
@@ -87,6 +92,7 @@ public class GameCon : MonoBehaviour
 
         stateLabel.gameObject.SetActive(true);
         stateLabel.text = "Ready";
+
     }
     void GameStart()
     {
@@ -94,7 +100,12 @@ public class GameCon : MonoBehaviour
 
         timeLabel.enabled = true;
         scoreLabel.enabled = true;
-     
+        stop.GetComponent<AudioSource>().enabled = false;
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        
       
 
      

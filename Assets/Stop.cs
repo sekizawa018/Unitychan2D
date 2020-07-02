@@ -11,6 +11,8 @@ public class Stop : MonoBehaviour
 
     public GameObject uni;
 
+    
+
    
 
   
@@ -32,6 +34,8 @@ public class Stop : MonoBehaviour
         if (collision.tag == "Player")
         {
             trigger = true;
+
+            GetComponent<AudioSource>().Play();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
 
 
